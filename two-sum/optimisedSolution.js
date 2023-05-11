@@ -4,13 +4,10 @@ function twoSum(numberArray, target) {
 
         const numHash = new Map();
 
-        numberArray.map((key, value) => {
-            numHash.set(key, value)
-        });
-
         for (let p1 = 0; p1 < numberArray.length; p1++) {
             let p2 = numHash.get(target - numberArray[p1]);
-            if (p2) return [p1, p2];
+            if (p2 != undefined) return [p1, p2];
+            numHash.set(numberArray[p1], p1);
         }
         return null;
 
@@ -38,7 +35,7 @@ require('./test-cases.json').forEach(([numberArray, target, expectedResult], ind
     console.time('time')
     result = twoSum(numberArray, target);
     if (expectedResult === null && result === null) console.log(`test ${++index} passed`);
-    else if (expectedResult[0] == result[0] && expectedResult[1] === result[1]) console.log(`test ${++index} passed`);
+    else if (result.includes(expectedResult[0]) && result.includes(expectedResult[1])) console.log(`test ${++index} passed`);
     else console.log(`test ${++index} failed`);
     console.timeEnd('time')
 });
