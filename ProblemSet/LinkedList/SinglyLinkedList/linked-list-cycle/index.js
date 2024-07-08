@@ -1,7 +1,4 @@
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
-}
+const ListNode = require('../../../../DataStructures/LinkedList').SinglyNode;
 
 /**
  * @param {ListNode} head

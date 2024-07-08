@@ -1,7 +1,5 @@
-function ListNode(val, next) {
-    this.val = (val === undefined ? 0 : val)
-    this.next = (next === undefined ? null : next)
-}
+const ListNode = require('../../../../DataStructures/LinkedList').SinglyNode;
+
 
 /**
  * @param {ListNode} list1
